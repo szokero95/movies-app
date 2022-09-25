@@ -1,9 +1,15 @@
 import React, { FC } from "react";
 import "./CarouselItem.scss";
-import { IResult } from "./Carousel";
+
 import Button from "../../components/Button/Button";
 import GetImages from "../../utils/GetImages";
 
+export interface IResult {
+  title: string;
+  backdrop_path: string;
+  poster_path?: string;
+  overview: string;
+}
 type Props = {
   item: IResult;
 };

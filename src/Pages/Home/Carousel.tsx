@@ -3,15 +3,8 @@ import React, { FC, useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/css";
-import CarouselItem from "./CarouselItem";
+import CarouselItem, { IResult } from "./CarouselItem";
 import mdbApi from "../../utils/api";
-
-export interface IResult {
-  title: string;
-  backdrop_path: string;
-  poster_path?: string;
-  overview: string;
-}
 
 interface IMovies {
   results: [IResult];
