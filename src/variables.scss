@@ -1,0 +1,25 @@
+$main-color: rgb(0, 119, 255);
+$secondary-color: rgb(3, 183, 228);
+$bg-color: #141214;
+$text-color: white;
+
+@mixin tablet-portrait {
+  @media (min-width: 600px) {
+    @content;
+  }
+}
+@mixin tablet-landscape {
+  @media (min-width: 900px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+@mixin big-desktop {
+  @media (min-width: 1800px) {
+    @content;
+  }
+}

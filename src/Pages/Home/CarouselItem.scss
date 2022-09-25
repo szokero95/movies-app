@@ -1,0 +1,83 @@
+@use "../../variables.scss" as *;
+.carousel-item {
+  width: 100%;
+  height: 40rem;
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover;
+  .bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    .left {
+      display: flex;
+      h3 {
+        font-size: 3rem;
+        color: $secondary-color;
+        text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+          1px 1px 0 #000;
+        text-align: center;
+      }
+      img {
+        display: none;
+        max-width: 100%;
+        max-height: 80vh;
+      }
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      p {
+        margin: 2rem;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.5);
+        color: $secondary-color;
+      }
+      .button-group {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+      }
+    }
+  }
+  @include tablet-landscape {
+    height: 45rem;
+    .bg {
+      flex-direction: row;
+      .left {
+        height: 45rem;
+        padding: 2rem;
+        flex: 1 1 0px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        img {
+          display: block;
+          height: 35rem;
+        }
+      }
+      .right {
+        flex: 1 1 0px;
+        height: 50%;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  @include big-desktop {
+    height: 55rem;
+    .bg {
+      .left {
+        height: 55rem;
+        img {
+          height: 45rem;
+        }
+      }
+    }
+  }
+}
