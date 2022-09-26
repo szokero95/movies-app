@@ -19,7 +19,6 @@ const Carousel: FC = () => {
     const response = mdbApi.getMovieList("popular");
     response.then((value) => {
       setMovies(value as unknown as IMovies);
-      console.log(value);
     });
   }, []);
 
