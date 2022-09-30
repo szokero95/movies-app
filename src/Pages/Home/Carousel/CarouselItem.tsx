@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./CarouselItem.scss";
 
-import Button from "../../components/Button/Button";
-import GetImages from "../../utils/GetImages";
-import { useModal } from "../../hooks/useModal";
+import Button from "../../../components/Button/Button";
+import GetImages from "../../../utils/GetImages";
+import { useModal } from "../../../hooks/useModal";
 import TrailerModal, {
   IVideos,
-} from "../../components/TrailerModal/TrailerModal";
-import mdbApi from "../../utils/api";
+} from "../../../components/TrailerModal/TrailerModal";
+import { useApi } from "../../../hooks/useApi";
 
 export interface IResult {
   title: string;
@@ -21,8 +21,9 @@ type Props = {
   item: IResult;
 };
 
-const CarouselItem = (props: Props) => {
-  const { item } = props;
+const CarouselItem = ({ item }: Props) => {
+  const { getVideos } = useApi();
+
   const { isOpen, toggle } = useModal();
   const [videos, setVideos] = useState<IVideos | null>(null);
   const images = GetImages(
@@ -31,7 +32,7 @@ const CarouselItem = (props: Props) => {
   );
 
   useEffect(() => {
-    const result = mdbApi.getVideos("movie", item.id);
+    const result = getVideos("movie", item.id);
     result.then((data) => setVideos(data as unknown as IVideos));
   }, [item.id]);
 

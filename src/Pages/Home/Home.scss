@@ -1,0 +1,47 @@
+@use "../../variables.scss" as *;
+
+@keyframes textAnimation {
+  0% {
+    background-position: 200% left;
+  }
+  50% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: 200% right;
+  }
+}
+
+.Home {
+  text-align: center;
+  padding-bottom: 1rem;
+  h2 {
+    &:first-of-type {
+      margin-top: 1rem;
+    }
+    margin-bottom: 1rem;
+
+    background: linear-gradient(
+      to right,
+      $text-color,
+      $secondary-color,
+      $text-color
+    );
+    background-size: 200% auto;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: textAnimation 4s alternate infinite;
+  }
+  @include tablet-portrait {
+    h2 {
+      &:first-of-type {
+        margin-top: 3rem;
+      }
+      font-size: 2rem;
+      margin-bottom: 3rem;
+    }
+  }
+}

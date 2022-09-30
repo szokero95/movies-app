@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/css";
 import CarouselItem, { IResult } from "./CarouselItem";
-import mdbApi from "../../utils/api";
+import { useApi } from "../../../hooks/useApi";
 
 interface IMovies {
   results: [IResult];
@@ -14,13 +14,14 @@ SwiperCore.use([Autoplay]);
 
 const Carousel: FC = () => {
   const [movies, setMovies] = useState<IMovies>();
+  const { getMovieList } = useApi();
 
   useEffect(() => {
-    const response = mdbApi.getMovieList("popular");
+    const response = getMovieList("popular");
     response.then((value) => {
       setMovies(value as unknown as IMovies);
     });
-  }, []);
+  });
 
   return (
     <Swiper
