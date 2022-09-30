@@ -28,21 +28,19 @@
     }
   }
   @include desktop {
-    padding: 6rem;
-
-    height: 20rem;
+    height: 25rem;
     a {
-      flex-basis: 20%;
+      flex-basis: 15%;
       img {
         width: 70%;
         &:hover {
-          width: 90%;
+          width: 85%;
         }
       }
     }
   }
   @include big-desktop {
-    padding: 12rem;
+    height: 30rem;
     a {
       img {
         width: 80%;

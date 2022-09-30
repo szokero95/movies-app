@@ -1,10 +1,11 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Autoplay } from "swiper";
 import "swiper/css";
 import CarouselItem, { IResult } from "./CarouselItem";
 import { useApi } from "../../../hooks/useApi";
+import { useModal } from "../../../hooks/useModal";
 
 interface IMovies {
   results: [IResult];
@@ -14,7 +15,9 @@ SwiperCore.use([Autoplay]);
 
 const Carousel: FC = () => {
   const [movies, setMovies] = useState<IMovies>();
+
   const { getMovieList } = useApi();
+  const { isOpen } = useModal();
 
   useEffect(() => {
     const response = getMovieList("popular");
@@ -28,7 +31,7 @@ const Carousel: FC = () => {
       slidesPerView={1}
       onSlideChange={() => console.log("slide change")}
       onSwiper={(swiper) => console.log(swiper)}
-      autoplay={{ delay: 5000 }}
+      autoplay={!isOpen}
       loop={true}
     >
       {movies?.results.map((item, id) => {

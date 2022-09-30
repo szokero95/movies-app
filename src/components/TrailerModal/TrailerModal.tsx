@@ -37,7 +37,7 @@ const TrailerModal = (props: Props): JSX.Element | null => {
             <iframe
               width="1920"
               height="1080"
-              src={`https://www.youtube.com/embed/${trailer}`}
+              src={`https://www.youtube.com/embed/${trailer}?autoplay=1`}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
