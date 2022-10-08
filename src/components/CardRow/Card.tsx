@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import GetImages from "../../utils/GetImages";
+import { categoryType } from "../../utils/types";
 interface Props {
   item: {
     title?: string;
@@ -9,15 +10,19 @@ interface Props {
     poster_path?: string;
     id: number;
   };
+  cat: categoryType;
 }
-const Card = ({ item }: Props) => {
+const Card = ({ item, cat }: Props) => {
   const images = GetImages(
     item.backdrop_path,
     item.poster_path ? item.poster_path : item.backdrop_path
   );
 
   return (
-    <Link to="/">
+    <Link
+      to={`/${cat}/${item.id}`}
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+    >
       <img className="card" src={images.w500} />
     </Link>
   );

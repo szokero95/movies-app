@@ -1,0 +1,45 @@
+@use "../../../variables.scss" as *;
+
+.cast-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  .member-container {
+    width: 40%;
+    height: 10rem;
+
+    border: 1px solid $secondary-color;
+    border-radius: 10px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0.5rem;
+    .dark {
+      background: rgba(0, 0, 0, 0.4);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      p {
+        color: $text-color;
+        padding: 0.5rem;
+      }
+    }
+    @include tablet-portrait {
+      width: 25%;
+      height: 20rem;
+      .dark {
+        p {
+          font-size: large;
+        }
+      }
+    }
+    @include desktop {
+      width: 10%;
+      height: 10rem;
+    }
+  }
+}

@@ -32,6 +32,7 @@ export const useApi = () => {
     params = { params: {} }
   ) => {
     const url = cat + "/" + id;
+    console.log(url);
     return client.get(url, params);
   };
 

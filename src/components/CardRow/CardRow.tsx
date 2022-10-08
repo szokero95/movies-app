@@ -41,7 +41,7 @@ const CardRow = ({ cat, type }: ICardRow): JSX.Element => {
   return (
     <div className="card-row">
       {list?.results.map((card, id) => {
-        return id > 5 ? null : <Card key={id} item={card} />;
+        return id > 5 ? null : <Card key={id} item={card} cat={cat} />;
       })}
     </div>
   );

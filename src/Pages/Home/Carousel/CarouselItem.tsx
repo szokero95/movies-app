@@ -8,6 +8,7 @@ import TrailerModal, {
   IVideos,
 } from "../../../components/TrailerModal/TrailerModal";
 import { useApi } from "../../../hooks/useApi";
+import { useNavigate } from "react-router-dom";
 
 export interface IResult {
   title: string;
@@ -23,13 +24,15 @@ type Props = {
 
 const CarouselItem = ({ item }: Props) => {
   const { getVideos } = useApi();
-
   const { isOpen, toggle } = useModal();
   const [videos, setVideos] = useState<IVideos | null>(null);
   const images = GetImages(
     item.backdrop_path,
     item.poster_path ? item.poster_path : item.backdrop_path
   );
+
+  const navigate = useNavigate();
+  const handleDetails = () => navigate(`/movie/${item.id}`);
 
   useEffect(() => {
     const result = getVideos("movie", item.id);
@@ -52,7 +55,7 @@ const CarouselItem = ({ item }: Props) => {
             <Button onClick={toggle} Outlined>
               Trailer
             </Button>
-            <Button onClick={() => {}} Outlined={false}>
+            <Button onClick={handleDetails} Outlined={false}>
               More..
             </Button>
           </div>

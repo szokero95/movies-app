@@ -1,0 +1,45 @@
+@use "../../variables.scss" as *;
+.outer {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  .img-container {
+    display: none;
+    padding: 3rem;
+    img {
+      border: 3px solid $secondary-color;
+      border-radius: 10px;
+    }
+    @include desktop {
+      display: block;
+    }
+  }
+  .data-container {
+    padding: 3rem;
+    text-align: center;
+    color: $secondary-color;
+    .title {
+      font-size: 1.5rem;
+      padding-bottom: 1rem;
+    }
+    .tagline,
+    .releasedate {
+      font-size: 1rem;
+      padding-bottom: 1rem;
+    }
+    .overview {
+      text-align: center;
+      padding-bottom: 1rem;
+    }
+    .cast-text {
+      padding-top: 1rem;
+    }
+  }
+}

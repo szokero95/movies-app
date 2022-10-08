@@ -24,7 +24,7 @@ const Carousel: FC = () => {
     response.then((value) => {
       setMovies(value as unknown as IMovies);
     });
-  });
+  }, []);
 
   return (
     <Swiper
