@@ -21,7 +21,7 @@ type Props = {
 };
 
 const TrailerModal = (props: Props): JSX.Element | null => {
-  const [trailer, setTrailer] = useState<string | null>(null);
+  const [trailer, setTrailer] = useState("");
 
   useEffect(() => {
     const trailers = props.videos.results.filter(

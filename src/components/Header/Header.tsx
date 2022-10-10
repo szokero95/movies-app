@@ -1,8 +1,8 @@
-import React, { FC } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import "./Header.scss";
 
-const Header: FC = () => {
+const Header = () => {
   return (
     <div className="header">
       <div className="logoBox">

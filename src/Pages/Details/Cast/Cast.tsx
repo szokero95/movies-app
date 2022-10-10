@@ -4,6 +4,7 @@ import { categoryType } from "../../../utils/types";
 import CastMember from "./CastMember";
 
 import "./Cast.scss";
+
 type Props = {
   cat: categoryType;
   id: number;

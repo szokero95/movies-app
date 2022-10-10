@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Button from "../../components/Button/Button";
 import TrailerModal, {
@@ -13,7 +13,7 @@ import Similar from "./Similar/Similar";
 
 import "./Details.scss";
 
-const Details: FC = () => {
+const Details = () => {
   const getLocation = useLocation();
   const { isOpen, toggle } = useModal();
   const { getDetail, getVideos } = useApi();

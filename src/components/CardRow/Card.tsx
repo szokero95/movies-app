@@ -2,6 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import GetImages from "../../utils/GetImages";
 import { categoryType } from "../../utils/types";
+
+import "./Card.scss";
+
 interface Props {
   item: {
     title?: string;
@@ -22,6 +25,7 @@ const Card = ({ item, cat }: Props) => {
     <Link
       to={`/${cat}/${item.id}`}
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className="card-link"
     >
       <img className="card" src={images.w500} />
     </Link>

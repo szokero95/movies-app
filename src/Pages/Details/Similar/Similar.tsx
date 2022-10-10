@@ -9,6 +9,7 @@ type Props = {
   cat: categoryType;
   id: number;
 };
+
 type ItemType = {
   title?: string;
   name?: string;
